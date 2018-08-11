@@ -90,7 +90,7 @@ public class HttpConfig {
     /**
      * 增加朋友路径
      *
-     * @param ownUsername 要添加好友的用户名
+     * @param ownUsername    要添加好友的用户名
      * @param friendUsername 被添加的用户名
      * @return
      */
@@ -101,12 +101,22 @@ public class HttpConfig {
     /**
      * 删除朋友路径
      *
-     * @param ownUsername 要删除好友的用户名
+     * @param ownUsername    要删除好友的用户名
      * @param friendUsername 被删除的用户名
      * @return
      */
     public String getDelFriendUrl(String ownUsername, String friendUsername) {
         return easemobHost + "/" + easemobOrgName + "/" + easemobAppName + "/" + "users" + "/" + ownUsername + "/contacts/users/" + friendUsername;
+    }
+
+    /**
+     * 获取朋友路径
+     *
+     * @param username 要获取好友的用户名
+     * @return
+     */
+    public String getGetFriendUrl(String username) {
+        return easemobHost + "/" + easemobOrgName + "/" + easemobAppName + "/" + "users" + "/" + username + "/contacts/users/";
     }
 
 

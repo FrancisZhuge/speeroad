@@ -167,6 +167,7 @@ public class EasemobServiceImpl implements EasemobService {
 
     @Override
     public List<String> getFriend(String username) throws BaseException {
+        String url = httpConfig.getGetFriendUrl(username);
         return null;
     }
 
