@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.francis.speeroad.entity.EMToken;
+import com.francis.speeroad.token.EMToken;
 import com.francis.speeroad.exception.http.HttpException;
+import com.francis.speeroad.token.TokenService;
 
 /**
  * @author hzzhugequn

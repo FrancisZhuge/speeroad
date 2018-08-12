@@ -121,13 +121,82 @@ public class HttpConfig {
 
     /**
      * 获取用户状态url
-     * @param username
+     *
+     * @param username 用户名
      * @return
      */
-    public String getGetStatusUrl(String username){
+    public String getGetStatusUrl(String username) {
         return easemobHost + "/" + easemobOrgName + "/" + easemobAppName + "/" + "users" + "/" + username + "/status";
     }
 
+    /**
+     * 获取用户离线消息数目
+     *
+     * @param username 用户名
+     * @return
+     */
+    public String getOfflineCountsUrl(String username) {
+        return easemobHost + "/" + easemobOrgName + "/" + easemobAppName + "/" + "users" + "/" + username + "/offline_msg_count";
+    }
+
+    /**
+     * 获取消息离线状态
+     *
+     * @param username 用户名
+     * @param msg_id   消息id
+     * @return
+     */
+    public String getOfflineStatusUrl(String username, long msg_id) {
+        return easemobHost + "/" + easemobOrgName + "/" + easemobAppName + "/" + "users" + "/" + username + "/offline_msg_status/" + msg_id;
+    }
+
+    /**
+     * 禁用接口
+     *
+     * @param username 用户名
+     * @return
+     */
+    public String getDeactivateUrl(String username) {
+        return easemobHost + "/" + easemobOrgName + "/" + easemobAppName + "/" + "users" + "/" + username + "/deactivate";
+    }
+
+    /**
+     * 解禁接口
+     *
+     * @param username 用户名
+     * @return
+     */
+    public String getActivateUrl(String username) {
+        return easemobHost + "/" + easemobOrgName + "/" + easemobAppName + "/" + "users" + "/" + username + "/activate";
+    }
+
+    /**
+     * 强制下线接口
+     *
+     * @param username 用户名
+     * @return
+     */
+    public String getDisConnectUrl(String username) {
+        return easemobHost + "/" + easemobOrgName + "/" + easemobAppName + "/" + "users" + "/" + username + "/disconnect";
+    }
+
+    /**
+     * 发送消息接口
+     *
+     * @return
+     */
+    public String getSendMessageUrl() {
+        return easemobHost + "/" + easemobOrgName + "/" + easemobAppName + "/" + "messages";
+    }
+
+    /**
+     * 历史消息接口
+     * @param time
+     * @return
+     */
+    public String getMessagesUrl(String time) {
+        return easemobHost + "/" + easemobOrgName + "/" + easemobAppName + "/chatmessages/" + time;
+    }
 
     public int getMaxConnection() {
         return maxConnection;

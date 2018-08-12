@@ -1,6 +1,6 @@
 package com.francis.speeroad.service;
 
-import com.francis.speeroad.entity.EMUser;
+import com.francis.speeroad.entity.EaseMobUser;
 
 /**
  * @author hzzhugequn
@@ -14,7 +14,7 @@ public interface EMUserService {
      *
      * @param user 用户
      */
-    void addUser(EMUser user);
+    void addUser(EaseMobUser user);
 
     /**
      * 获取用户
@@ -22,5 +22,5 @@ public interface EMUserService {
      * @param username 用户名
      * @return 用户
      */
-    EMUser getUser(String username);
+    EaseMobUser getUser(String username);
 }

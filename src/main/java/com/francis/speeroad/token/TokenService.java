@@ -1,6 +1,5 @@
-package com.francis.speeroad.service;
+package com.francis.speeroad.token;
 
-import com.francis.speeroad.entity.EMToken;
 import com.francis.speeroad.exception.http.HttpException;
 
 /**

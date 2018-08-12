@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import com.francis.speeroad.entity.EMUser;
+import com.francis.speeroad.entity.EaseMobUser;
 
 /**
  * em user dao
@@ -26,7 +26,7 @@ public interface EMUserDao {
      * @param user 用户信息
      */
     @Insert({" insert into ", TABLE_NAME, " ( ", INSERT_FIELDS, " )values(#{user.username}, #{user.password}, #{user.nickname}, #{user.uuid}, #{user.type}, #{user.created}, #{user.modified}, #{user.activated}) "})
-    void addUser(@Param("user") EMUser user);
+    void addUser(@Param("user") EaseMobUser user);
 
     /**
      * 根据用户名查找
@@ -35,5 +35,5 @@ public interface EMUserDao {
      * @return 用户
      */
     @Select({" select ", SELECT_FIELDS, " from ", TABLE_NAME, " where username=#{username} "})
-    EMUser getUser(@Param("username") String username);
+    EaseMobUser getUser(@Param("username") String username);
 }

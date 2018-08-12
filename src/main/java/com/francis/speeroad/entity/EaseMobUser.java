@@ -7,7 +7,7 @@ package com.francis.speeroad.entity;
  * @date 2018/8/5
  * @since JDK 1.8
  */
-public class EMUser {
+public class EaseMobUser {
     private long id;
     private String username;
     private String password;
@@ -19,7 +19,7 @@ public class EMUser {
     private boolean activated;
     private String deviceToken;
 
-    public EMUser() {
+    public EaseMobUser() {
     }
 
     public long getId() {
@@ -104,17 +104,17 @@ public class EMUser {
 
     @Override
     public String toString() {
-        return "EMUser{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", uuid='" + uuid + '\'' +
-                ", type='" + type + '\'' +
-                ", created=" + created +
-                ", modified=" + modified +
-                ", activated=" + activated +
-                ", deviceToken='" + deviceToken + '\'' +
-                '}';
+        return "EaseMobUser{" +
+                       "id=" + id +
+                       ", username='" + username + '\'' +
+                       ", password='" + password + '\'' +
+                       ", nickname='" + nickname + '\'' +
+                       ", uuid='" + uuid + '\'' +
+                       ", type='" + type + '\'' +
+                       ", created=" + created +
+                       ", modified=" + modified +
+                       ", activated=" + activated +
+                       ", deviceToken='" + deviceToken + '\'' +
+                       '}';
     }
 }

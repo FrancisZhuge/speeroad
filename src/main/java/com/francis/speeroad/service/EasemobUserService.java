@@ -2,7 +2,7 @@ package com.francis.speeroad.service;
 
 import java.util.List;
 
-import com.francis.speeroad.entity.EMUser;
+import com.francis.speeroad.entity.EaseMobUser;
 import com.francis.speeroad.exception.BaseException;
 
 /**
@@ -12,14 +12,14 @@ import com.francis.speeroad.exception.BaseException;
  * @date 2018/8/4
  * @since JDK 1.8
  */
-public interface EasemobService {
+public interface EasemobUserService {
 
     /**
      * 在em中注册
      *
      * @throws BaseException
      */
-    EMUser registerSingle(String username, String password, String nickname) throws BaseException;
+    EaseMobUser registerSingle(String username, String password, String nickname) throws BaseException;
 
     /**
      * 从em中获取
@@ -28,7 +28,7 @@ public interface EasemobService {
      * @return
      * @throws BaseException
      */
-    EMUser getSingle(String username) throws BaseException;
+    EaseMobUser getSingle(String username) throws BaseException;
 
     /**
      * 从em中删除
@@ -37,7 +37,7 @@ public interface EasemobService {
      * @return
      * @throws BaseException
      */
-    EMUser delSingle(String username) throws BaseException;
+    EaseMobUser delSingle(String username) throws BaseException;
 
     /**
      * 修改密码
@@ -47,7 +47,7 @@ public interface EasemobService {
      * @return
      * @throws BaseException 失败
      */
-    EMUser resetSingle(String username, String password) throws BaseException;
+    EaseMobUser resetSingle(String username, String password) throws BaseException;
 
     /**
      * 修改昵称
@@ -57,7 +57,7 @@ public interface EasemobService {
      * @return
      * @throws BaseException
      */
-    EMUser resetNickname(String username, String nickname) throws BaseException;
+    EaseMobUser resetNickname(String username, String nickname) throws BaseException;
 
     /**
      * 添加好友
@@ -67,7 +67,7 @@ public interface EasemobService {
      * @return friendUsername 的信息
      * @throws BaseException
      */
-    EMUser addFriend(String ownerUsername, String friendUsername) throws BaseException;
+    EaseMobUser addFriend(String ownerUsername, String friendUsername) throws BaseException;
 
     /**
      * 删除好友
@@ -77,7 +77,7 @@ public interface EasemobService {
      * @return friendUsername 的信息
      * @throws BaseException
      */
-    EMUser delFriend(String ownerUsername, String friendUsername) throws BaseException;
+    EaseMobUser delFriend(String ownerUsername, String friendUsername) throws BaseException;
 
     /**
      * 获取好友列表
@@ -100,20 +100,21 @@ public interface EasemobService {
     /**
      * 查询离线消息数
      *
-     * @param usernmae 用户名
+     * @param username 用户名
      * @return
      * @throws BaseException
      */
-    Long getOfflineCounts(String usernmae) throws BaseException;
+    Long getOfflineCounts(String username) throws BaseException;
 
     /**
      * 查询离线消息状况
      *
+     * @param username   用户名
      * @param message_id 消息主键
      * @return {@code true} 收到过了， {@code false} 没有收到过
      * @throws BaseException
      */
-    Boolean getOfflineStatus(String message_id) throws BaseException;
+    Boolean getOfflineStatus(String username, long message_id) throws BaseException;
 
     /**
      * 禁用用户
@@ -122,7 +123,7 @@ public interface EasemobService {
      * @return
      * @throws BaseException
      */
-    EMUser Deactivate(String username) throws BaseException;
+    EaseMobUser deactivate(String username) throws BaseException;
 
     /**
      * 解禁用户
@@ -131,7 +132,7 @@ public interface EasemobService {
      * @return
      * @throws BaseException
      */
-    Boolean Activate(String username) throws BaseException;
+    EaseMobUser activate(String username) throws BaseException;
 
     /**
      * 强制用户下线

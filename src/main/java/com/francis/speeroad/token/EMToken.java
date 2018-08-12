@@ -1,4 +1,4 @@
-package com.francis.speeroad.entity;
+package com.francis.speeroad.token;
 
 /**
  * token entity

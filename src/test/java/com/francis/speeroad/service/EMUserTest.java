@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.francis.speeroad.entity.EMToken;
-import com.francis.speeroad.entity.EMUser;
+import com.francis.speeroad.entity.EaseMobUser;
 import com.francis.speeroad.exception.BaseException;
-import com.francis.speeroad.exception.http.HttpException;
 
 import java.util.List;
 
@@ -23,48 +21,48 @@ import java.util.List;
 public class EMUserTest {
 
     @Autowired
-    EasemobService easemobService;
+    EasemobUserService easemobService;
     @Test
     public void register() throws BaseException {
-        EMUser register = easemobService.registerSingle("fuck3", "123456", "");
+        EaseMobUser register = easemobService.registerSingle("fuck3", "123456", "");
         System.out.println(register);
     }
 
     @Test
     public void get() throws BaseException{
-        EMUser fuck = easemobService.getSingle("fuck1");
+        EaseMobUser fuck = easemobService.getSingle("fuck1");
         System.out.println(fuck);
     }
 
     @Test
     public void del() throws BaseException{
-        EMUser fuck = easemobService.delSingle("fuck");
+        EaseMobUser fuck = easemobService.delSingle("fuck");
         System.out.println(fuck);
     }
 
     @Test
     public void reset() throws BaseException{
-        EMUser fuck = easemobService.resetSingle("fuck2","1234567");
+        EaseMobUser fuck = easemobService.resetSingle("fuck2","1234567");
     }
 
     @Test
     public void resetNickName() throws BaseException{
-        EMUser fuck = easemobService.resetNickname("fuck2","张国荣1");
+        EaseMobUser fuck = easemobService.resetNickname("fuck2","张国荣1");
     }
 
     @Test
     public void addFriend() throws BaseException{
-        EMUser user = easemobService.addFriend("fuck1", "fuck3");
+        EaseMobUser user = easemobService.addFriend("fuck1", "fuck3");
         System.out.println(user);
     }
 
     @Test
     public void delFriend() throws BaseException{
-        EMUser user = easemobService.delFriend("fuck1", "fuck2");
+        EaseMobUser user = easemobService.delFriend("fuck1", "fuck2");
         System.out.println(user);
-        EMUser fuck1 = easemobService.getSingle("fuck1");
+        EaseMobUser fuck1 = easemobService.getSingle("fuck1");
         System.out.println(fuck1);
-        EMUser fuck2 = easemobService.getSingle("fuck2");
+        EaseMobUser fuck2 = easemobService.getSingle("fuck2");
         System.out.println(fuck2);
     }
 
@@ -76,8 +74,30 @@ public class EMUserTest {
 
     @Test
     public void getStatus() throws BaseException{
-        easemobService.getStatus("fuck1");
+        Boolean fuck1 = easemobService.getStatus("fuck1");
+        System.out.println(fuck1);
+    }
+    @Test
+    public void getCounts() throws BaseException{
+        Long fuck1 = easemobService.getOfflineCounts("fuck1");
+        System.out.println(fuck1);
     }
 
+    @Test
+    public void deactivate() throws BaseException{
+        EaseMobUser fuck1 = easemobService.deactivate("fuck1");
+        System.out.println(fuck1);
+    }
 
+    @Test
+    public void activate() throws BaseException{
+        EaseMobUser fuck1 = easemobService.activate("fuck1");
+        System.out.println(fuck1);
+    }
+
+    @Test
+    public void disconnect() throws BaseException{
+        Boolean fuck1 = easemobService.disConnect("fuck1");
+        System.out.println(fuck1);
+    }
 }

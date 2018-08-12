@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.francis.speeroad.dao.EMUserDao;
-import com.francis.speeroad.entity.EMUser;
+import com.francis.speeroad.entity.EaseMobUser;
 import com.francis.speeroad.service.EMUserService;
 
 /**
@@ -19,12 +19,12 @@ public class EMUserServiceImpl implements EMUserService {
     private EMUserDao userDao;
 
     @Override
-    public void addUser(EMUser user) {
+    public void addUser(EaseMobUser user) {
         userDao.addUser(user);
     }
 
     @Override
-    public EMUser getUser(String username) {
+    public EaseMobUser getUser(String username) {
         return userDao.getUser(username);
     }
 }

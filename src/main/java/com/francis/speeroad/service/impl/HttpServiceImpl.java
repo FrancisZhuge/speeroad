@@ -1,6 +1,7 @@
 package com.francis.speeroad.service.impl;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.francis.speeroad.exception.http.UserNotExistException;
 import org.apache.commons.lang3.StringUtils;
@@ -38,7 +39,7 @@ public class HttpServiceImpl implements HttpService {
 
 
     @Override
-    public String post(String url, Header header, String body) throws HttpException {
+    public String post(String url, List<Header> headers, String body) throws HttpException {
         String returnValue = null;
         CloseableHttpClient client = httpManager.getHttpClient();
         HttpPost post = new HttpPost(url);
@@ -46,11 +47,12 @@ public class HttpServiceImpl implements HttpService {
             StringEntity stringEntity = new StringEntity(body, ContentType.create("text/plain", "UTF-8"));
             post.setEntity(stringEntity);
         }
-        if (header != null) {
-            post.setHeader(header);
+        if (headers != null && headers.size() != 0) {
+            for (Header header : headers){
+                post.setHeader(header);
+            }
         }
         post.setHeader("Content-Type", "application/json");
-        post.setHeader(header);
         CloseableHttpResponse response = null;
         try {
             response = client.execute(post);
@@ -79,15 +81,16 @@ public class HttpServiceImpl implements HttpService {
     }
 
     @Override
-    public String get(String url, Header header) throws HttpException {
+    public String get(String url, List<Header> headers) throws HttpException {
         String returnValue = null;
         CloseableHttpClient client = httpManager.getHttpClient();
         HttpGet get = new HttpGet(url);
-        if (header != null) {
-            get.setHeader(header);
+        if (headers != null && headers.size() != 0) {
+            for (Header header : headers){
+                get.setHeader(header);
+            }
         }
         get.setHeader("Content-Type", "application/json");
-        get.setHeader(header);
         CloseableHttpResponse response = null;
         try {
             response = client.execute(get);
@@ -116,15 +119,16 @@ public class HttpServiceImpl implements HttpService {
     }
 
     @Override
-    public String delete(String url, Header header) throws HttpException {
+    public String delete(String url, List<Header> headers) throws HttpException {
         String returnValue = null;
         CloseableHttpClient client = httpManager.getHttpClient();
         HttpDelete delete = new HttpDelete(url);
-        if (header != null) {
-            delete.setHeader(header);
+        if (headers != null && headers.size() != 0) {
+            for (Header header : headers){
+                delete.setHeader(header);
+            }
         }
         delete.setHeader("Content-Type", "application/json");
-        delete.setHeader(header);
         CloseableHttpResponse response = null;
         try {
             response = client.execute(delete);
@@ -153,7 +157,7 @@ public class HttpServiceImpl implements HttpService {
     }
 
     @Override
-    public String put(String url, Header header, String body) throws HttpException{
+    public String put(String url, List<Header> headers, String body) throws HttpException{
         String returnValue = null;
         CloseableHttpClient client = httpManager.getHttpClient();
         HttpPut put = new HttpPut(url);
@@ -161,11 +165,12 @@ public class HttpServiceImpl implements HttpService {
             StringEntity stringEntity = new StringEntity(body, ContentType.create("text/plain", "UTF-8"));
             put.setEntity(stringEntity);
         }
-        if (header != null) {
-            put.setHeader(header);
+        if (headers != null && headers.size() != 0) {
+            for (Header header : headers){
+                put.setHeader(header);
+            }
         }
         put.setHeader("Content-Type", "application/json");
-        put.setHeader(header);
         CloseableHttpResponse response = null;
         try {
             response = client.execute(put);

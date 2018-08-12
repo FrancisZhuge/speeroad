@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.francis.speeroad.entity.EMUser;
+import com.francis.speeroad.entity.EaseMobUser;
 import com.francis.speeroad.exception.BaseException;
 import com.francis.speeroad.service.EMUserService;
-import com.francis.speeroad.service.EasemobService;
+import com.francis.speeroad.service.EasemobUserService;
 import com.francis.speeroad.util.PasswordUtil;
 import com.francis.speeroad.web.response.ResponseUtil;
 
@@ -23,7 +23,7 @@ import com.francis.speeroad.web.response.ResponseUtil;
 public class EMUserController {
 
     @Autowired
-    EasemobService easemobService;
+    EasemobUserService easemobService;
 
     @Autowired
     EMUserService userService;
@@ -36,12 +36,12 @@ public class EMUserController {
             return ResponseUtil.responseIllegalArgus();
         }
         //检查用户名在不在
-        EMUser user = userService.getUser(username);
+        EaseMobUser user = userService.getUser(username);
         if (user != null){
             return ResponseUtil.responseNotChange("user is exist.");
         }
         String password = PasswordUtil.genPassword();
-        EMUser emUser = null;
+        EaseMobUser emUser = null;
         try {
             emUser = easemobService.registerSingle(username, password, nickname);
         } catch (BaseException e) {

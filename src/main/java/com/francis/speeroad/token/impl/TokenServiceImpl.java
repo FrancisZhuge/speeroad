@@ -1,4 +1,4 @@
-package com.francis.speeroad.service.impl;
+package com.francis.speeroad.token.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.francis.speeroad.conf.HttpConfig;
-import com.francis.speeroad.entity.EMToken;
+import com.francis.speeroad.token.EMToken;
 import com.francis.speeroad.exception.CacheNotExistException;
 import com.francis.speeroad.exception.http.HttpException;
 import com.francis.speeroad.service.CacheService;
 import com.francis.speeroad.service.HttpService;
-import com.francis.speeroad.service.TokenService;
+import com.francis.speeroad.token.TokenService;
 import com.francis.speeroad.util.CacheUtil;
 
 /**
