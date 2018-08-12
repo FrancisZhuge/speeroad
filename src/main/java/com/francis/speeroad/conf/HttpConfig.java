@@ -119,6 +119,15 @@ public class HttpConfig {
         return easemobHost + "/" + easemobOrgName + "/" + easemobAppName + "/" + "users" + "/" + username + "/contacts/users/";
     }
 
+    /**
+     * 获取用户状态url
+     * @param username
+     * @return
+     */
+    public String getGetStatusUrl(String username){
+        return easemobHost + "/" + easemobOrgName + "/" + easemobAppName + "/" + "users" + "/" + username + "/status";
+    }
+
 
     public int getMaxConnection() {
         return maxConnection;

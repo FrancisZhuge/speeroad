@@ -183,6 +183,12 @@ public class EasemobServiceImpl implements EasemobService {
 
     @Override
     public Boolean getStatus(String username) throws BaseException {
+        String url = httpConfig.getGetStatusUrl(username);
+        String value = "Bearer "+ tokenService.getToken().getToken();
+        Header header = new BasicHeader("Authorization", value);
+        String returnValue = httpService.get(url, header);
+        JSONObject data = JSONObject.parseObject(returnValue).getJSONObject("data");
+        System.out.println(data);
         return null;
     }
 

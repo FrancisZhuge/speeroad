@@ -74,5 +74,10 @@ public class EMUserTest {
         System.out.println(fuck1);
     }
 
+    @Test
+    public void getStatus() throws BaseException{
+        easemobService.getStatus("fuck1");
+    }
+
 
 }
