@@ -11,6 +11,8 @@ import com.francis.speeroad.entity.EMUser;
 import com.francis.speeroad.exception.BaseException;
 import com.francis.speeroad.exception.http.HttpException;
 
+import java.util.List;
+
 /**
  * @author hzzhugequn
  * @date 2018/8/5
@@ -64,6 +66,12 @@ public class EMUserTest {
         System.out.println(fuck1);
         EMUser fuck2 = easemobService.getSingle("fuck2");
         System.out.println(fuck2);
+    }
+
+    @Test
+    public void getFriend() throws BaseException{
+        List<String> fuck1 = easemobService.getFriend("fuck1");
+        System.out.println(fuck1);
     }
 
 

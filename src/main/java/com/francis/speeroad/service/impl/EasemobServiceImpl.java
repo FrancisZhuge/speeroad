@@ -1,8 +1,10 @@
 package com.francis.speeroad.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.francis.speeroad.entity.EMToken;
 import com.francis.speeroad.exception.http.HttpException;
@@ -168,7 +170,15 @@ public class EasemobServiceImpl implements EasemobService {
     @Override
     public List<String> getFriend(String username) throws BaseException {
         String url = httpConfig.getGetFriendUrl(username);
-        return null;
+        String value = "Bearer "+ tokenService.getToken().getToken();
+        Header header = new BasicHeader("Authorization", value);
+        String returnValue = httpService.get(url, header);
+        JSONArray entities = JSON.parseObject(returnValue).getJSONArray("data");
+        List<String> friends = new ArrayList<>();
+        for (int i=0;i<entities.size();i++){
+            friends.add(entities.getString(i));
+        }
+        return friends;
     }
 
     @Override
