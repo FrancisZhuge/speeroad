@@ -1,0 +1,20 @@
+1. 好友存在redis中 set
+key: EASE_MOB_FRIEND#${username}
+value: ${friend_username}
+一个用户一个好友列表。
+
+
+2. 消息存在redis中 zset
+key: EASE_MOB_MESSAGE#{username}#${friend_username}
+score: create_time (double)
+value: notify
+一个用户对一个列表
+
+操作：
+1. 好友
+新增： sadd key value
+获取： sinter key
+
+2. 消息
+新增： zadd key score value
+获取： zrange key 0 -1

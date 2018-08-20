@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration debug="true" scan="true" scanPeriod="60 seconds">
-	<property name="log.path" value="E://log" />
+	<property name="log.path" value="/Users/francis/Documents/code/log" />
 	<contextName>speeroad</contextName>
 
 	<appender name="all" class="ch.qos.logback.core.rolling.RollingFileAppender">

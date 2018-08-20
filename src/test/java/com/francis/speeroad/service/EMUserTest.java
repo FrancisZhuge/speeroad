@@ -24,7 +24,7 @@ public class EMUserTest {
     EasemobUserService easemobService;
     @Test
     public void register() throws BaseException {
-        EaseMobUser register = easemobService.registerSingle("fuck3", "123456", "");
+        EaseMobUser register = easemobService.registerSingle("fuck4", "123456", "");
         System.out.println(register);
     }
 

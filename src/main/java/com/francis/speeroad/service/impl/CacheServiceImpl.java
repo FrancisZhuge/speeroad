@@ -15,6 +15,8 @@ import com.francis.speeroad.conf.CacheConfig;
 import com.francis.speeroad.exception.CacheNotExistException;
 import com.francis.speeroad.service.CacheService;
 
+import java.util.Set;
+
 /**
  * 缓存具体服务类
  *
@@ -79,6 +81,59 @@ public class CacheServiceImpl implements CacheService {
         try {
             jedis = jedisPool.getResource();
             jedis.del(key);
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+
+    @Override
+    public void sadd(String key, String value) {
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.sadd(key, value);
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+    @Override
+    public Set<String> sget(String key) {
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            return jedis.sinter(key);
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+    @Override
+    public void zadd(String key, long score, String value) {
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.zadd(key, score, value);
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+    @Override
+    public Set<String> zget(String key) {
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            return jedis.zrange(key, 0, -1);
         } finally {
             if (jedis != null) {
                 jedis.close();

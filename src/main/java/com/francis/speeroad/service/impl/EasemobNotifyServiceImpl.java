@@ -14,6 +14,9 @@ import com.francis.speeroad.service.EasemobNotifyService;
 import com.francis.speeroad.service.HttpService;
 import com.francis.speeroad.token.TokenService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 聊天记录
  *
@@ -38,8 +41,10 @@ public class EasemobNotifyServiceImpl implements EasemobNotifyService {
         String url = httpConfig.getSendMessageUrl();
         String value = "Bearer " + tokenService.getToken().getToken();
         Header header = new BasicHeader("Authorization", value);
+        List<Header> headers = new ArrayList<>();
+        headers.add(header);
         String params = JSON.toJSONString(message);
-        String returnValue = httpService.post(url, header, params);
+        String returnValue = httpService.post(url, headers, params);
         System.out.println(returnValue);
         return JSONObject.parseObject(returnValue).getJSONObject("data");
     }
@@ -49,7 +54,9 @@ public class EasemobNotifyServiceImpl implements EasemobNotifyService {
         String url = httpConfig.getMessagesUrl(time);
         String value = "Bearer " + tokenService.getToken().getToken();
         Header header = new BasicHeader("Authorization", value);
-        String returnValue = httpService.get(url, header);
+        List<Header> headers = new ArrayList<>();
+        headers.add(header);
+        String returnValue = httpService.get(url, headers);
         System.out.println(returnValue);
         return null;
     }

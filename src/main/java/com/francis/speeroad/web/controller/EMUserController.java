@@ -22,35 +22,5 @@ import com.francis.speeroad.web.response.ResponseUtil;
 @Controller
 public class EMUserController {
 
-    @Autowired
-    EasemobUserService easemobService;
-
-    @Autowired
-    EMUserService userService;
-
-    @RequestMapping("/register/single")
-    @ResponseBody
-    public String registerSingle(@RequestParam(value = "username", defaultValue = "", required = false) String username,
-                                 @RequestParam(value = "nickname", defaultValue = "", required = false) String nickname){
-        if (StringUtils.isBlank(username)){
-            return ResponseUtil.responseIllegalArgus();
-        }
-        //检查用户名在不在
-        EaseMobUser user = userService.getUser(username);
-        if (user != null){
-            return ResponseUtil.responseNotChange("user is exist.");
-        }
-        String password = PasswordUtil.genPassword();
-        EaseMobUser emUser = null;
-        try {
-            emUser = easemobService.registerSingle(username, password, nickname);
-        } catch (BaseException e) {
-            return ResponseUtil.responseError();
-        }
-        if (emUser != null){
-            userService.addUser(emUser);
-        }
-        return ResponseUtil.responseOk(null);
-    }
 
 }

@@ -147,7 +147,7 @@ public class EasemobUserServiceImpl implements EasemobUserService {
         Header header = new BasicHeader("Authorization", value);
         List<Header> headers = new ArrayList<>();
         headers.add(header);
-        String returnValue = httpService.post(url, headers, null);
+        String returnValue = httpService.post(url, headers, "");
         JSONObject entity = JSON.parseObject(returnValue).getJSONArray("entities").getJSONObject(0);
         EaseMobUser user = new EaseMobUser();
         user.setCreated(entity.getLong("created"));
@@ -239,7 +239,7 @@ public class EasemobUserServiceImpl implements EasemobUserService {
         Header header = new BasicHeader("Authorization", value);
         List<Header> headers = new ArrayList<>();
         headers.add(header);
-        String returnValue = httpService.post(url, headers, null);
+        String returnValue = httpService.post(url, headers, "");
         JSONObject entity = JSON.parseObject(returnValue).getJSONArray("entities").getJSONObject(0);
         EaseMobUser user = new EaseMobUser();
         user.setCreated(entity.getLong("created"));
@@ -259,7 +259,7 @@ public class EasemobUserServiceImpl implements EasemobUserService {
         Header header = new BasicHeader("Authorization", value);
         List<Header> headers = new ArrayList<>();
         headers.add(header);
-        String returnValue = httpService.post(url, headers, null);
+        String returnValue = httpService.post(url, headers, "");
         JSONObject entity = JSON.parseObject(returnValue);
         EaseMobUser user = new EaseMobUser();
         user.setModified(entity.getLong("timestamp"));

@@ -3,6 +3,7 @@ package com.francis.speeroad.service.impl;
 import java.io.IOException;
 import java.util.List;
 
+import com.francis.speeroad.entity.message.File;
 import com.francis.speeroad.exception.http.UserNotExistException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
@@ -199,5 +200,10 @@ public class HttpServiceImpl implements HttpService {
                 logger.error("[put] close err.");
             }
         }
+    }
+
+    @Override
+    public String post(String url, List<Header> headers, File file) throws HttpException {
+        return null;
     }
 }

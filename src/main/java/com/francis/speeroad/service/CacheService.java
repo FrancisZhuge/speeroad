@@ -2,6 +2,8 @@ package com.francis.speeroad.service;
 
 import com.francis.speeroad.exception.CacheNotExistException;
 
+import java.util.Set;
+
 /**
  * 缓存服务类
  *
@@ -34,4 +36,12 @@ public interface CacheService {
      * @return
      */
     void delete(String key);
+
+    void sadd(String key, String value);
+
+    Set<String> sget(String key);
+
+    void zadd(String key, long score, String value);
+
+    Set<String> zget(String key);
 }
