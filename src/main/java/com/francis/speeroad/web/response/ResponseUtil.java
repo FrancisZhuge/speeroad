@@ -36,10 +36,10 @@ public class ResponseUtil {
      *
      * @return
      */
-    public static String responseIllegalArgus() {
+    public static String responseIllegalArgus(String msg) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("code", ResponseCode.F_ILLEGAL_ARGUS);
-        jsonObject.put("msg", "illegal arguments.");
+        jsonObject.put("msg", msg);
         return jsonObject.toJSONString();
     }
 

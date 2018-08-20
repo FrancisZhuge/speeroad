@@ -22,5 +22,20 @@ import com.francis.speeroad.web.response.ResponseUtil;
 @Controller
 public class EMUserController {
 
+    @Autowired
 
+
+    @RequestMapping("/register")
+    @ResponseBody
+    public String register(@RequestParam(value = "username", defaultValue = "", required = false)String username,
+                           @RequestParam(value = "password", defaultValue = "", required = false)String password){
+        if (StringUtils.isBlank(username)){
+            return ResponseUtil.responseIllegalArgus("用户名为空");
+        }
+        if (StringUtils.isBlank(password)){
+            return ResponseUtil.responseIllegalArgus("密码为空");
+        }
+
+        return "hello";
+    }
 }
